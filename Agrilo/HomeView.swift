@@ -47,6 +47,21 @@ struct OverViewTabs: View {
   }
 }
 
+struct TagCards: View{
+  let text: String
+  var image: String
+  
+  var body: some View{
+    HStack{
+      Image(systemName: image)
+      Text(text)
+    }
+    .padding(10)
+    .background()
+    .cornerRadius(30)
+  }
+}
+
 struct HomeView: View {
     var body: some View {
       ZStack{
@@ -71,22 +86,10 @@ struct HomeView: View {
                 .background(in: Circle())
             }
             
+            // tag cards
             HStack{
-              // another hstack
-              HStack{
-                Image(systemName: "calendar")
-                Text("3 Days ago")
-              }
-              .padding(10)
-              .background()
-              .cornerRadius(30)
-              HStack{
-                Image(systemName: "camera.macro")
-                Text("Flower Plant")
-              }
-              .padding(10)
-              .background()
-              .cornerRadius(30)
+              TagCards(text: "3 Days ago", image: "calendar")
+              TagCards(text: "Flower Plant", image: "camera.macro")
               Spacer()
             }
             .padding(.horizontal, 5)
@@ -101,25 +104,24 @@ struct HomeView: View {
                   .frame(height: 30 )
               }
               VStack {
-                Text("6.4")
-                Text("PH")
+                Text("40%")
+                Text("Moisture")
                 Rectangle()
                   .frame(height: 60 )
               }
               VStack {
-                Text("6.4")
+                Text("")
                 Text("PH")
                 Rectangle()
-                  .frame(height: 30 )
+                  .frame(height: 100 )
               }
               VStack {
                 Text("6.4")
                 Text("PH")
                 Rectangle()
-                  .frame(height: 30 )
+                  .frame(height: 50 )
               }
             }
-            .padding(.horizontal, 10)
           }
           .padding(5)
           .background(Color.yellow)
