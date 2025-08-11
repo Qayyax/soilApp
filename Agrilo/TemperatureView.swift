@@ -87,13 +87,23 @@ struct TemperatureView: View {
           .padding(.horizontal )
           
           // Vstack for options
-          // hstack of teh component
-//          vstack instad
           VStack {
             ForEach(testHistoryData, id: \.title) { history in
               TestHistoryCard(title: history.title, duration: history.duration)
             }
           }
+          
+          // Button to start a new test
+          Button("Start a New Test") {
+            print("Start a new test")
+          }
+          .foregroundStyle(.black)
+          .padding(20)
+          .frame(maxWidth: .infinity)
+          .background(Color.yellow)
+          .cornerRadius(20)
+          .padding(.horizontal, 5)
+          
         }
       }
     }
