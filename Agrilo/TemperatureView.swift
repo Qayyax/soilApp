@@ -45,6 +45,25 @@ struct TemperatureView: View {
           }
           .foregroundStyle(.white)
           .padding(.horizontal )
+          
+          // Vstack for options
+          // hstack of teh component
+//          vstack instad
+          HStack {
+            VStack(alignment: .leading) {
+              Text("Rose Flower Plant")
+                .foregroundStyle(.white)
+                .fontWeight(.bold)
+              HStack (alignment: .center){
+                Image(systemName: "calendar")
+                Text("3 Days ago")
+              }
+              .foregroundStyle(.gray)
+            }
+            Spacer()
+            // image
+            ImageIcon(imageName: "chevron.right", foregroundColor: .white, backgroundColor: Color.gray, padding: 20 )
+          }
         }
       }
     }
