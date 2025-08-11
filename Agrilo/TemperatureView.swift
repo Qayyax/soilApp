@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+struct testHistory {
+  var title: String
+  var duration: String
+}
+
+
+struct TestHistoryCard: View {
+  let title: String
+  let duration: String
+  
+  var body: some View {
+    HStack (alignment: .center){
+      VStack(alignment: .leading) {
+        Text(title)
+          .foregroundStyle(.white)
+          .fontWeight(.bold)
+          .padding(.bottom, 4)
+        HStack (alignment: .center){
+          Image(systemName: "calendar")
+          Text(duration)
+        }
+        .foregroundStyle(.gray)
+      }
+      Spacer()
+      // image
+      ImageIcon(imageName: "chevron.right", foregroundColor: .white, backgroundColor: Color(red: 0.23, green: 0.23, blue: 0.23), padding: 30 )
+    }
+    .padding(.leading, 15)
+    .background(Color(red: 0.3176, green: 0.3216, blue: 0.3059))
+    .cornerRadius(30)
+  }
+}
+
 struct TemperatureView: View {
     var body: some View {
       ZStack{
@@ -49,21 +82,6 @@ struct TemperatureView: View {
           // Vstack for options
           // hstack of teh component
 //          vstack instad
-          HStack {
-            VStack(alignment: .leading) {
-              Text("Rose Flower Plant")
-                .foregroundStyle(.white)
-                .fontWeight(.bold)
-              HStack (alignment: .center){
-                Image(systemName: "calendar")
-                Text("3 Days ago")
-              }
-              .foregroundStyle(.gray)
-            }
-            Spacer()
-            // image
-            ImageIcon(imageName: "chevron.right", foregroundColor: .white, backgroundColor: Color.gray, padding: 20 )
-          }
         }
       }
     }
