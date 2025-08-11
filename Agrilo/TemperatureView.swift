@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct testHistory {
+struct TestHistory {
   var title: String
   var duration: String
 }
@@ -41,6 +41,13 @@ struct TestHistoryCard: View {
 }
 
 struct TemperatureView: View {
+  
+  let testHistoryData: [TestHistory] = [
+    TestHistory(title: "Rose Flower plant", duration: "3 Days ago"),
+    TestHistory(title: "Lavender plant", duration: "5 Days ago"),
+    TestHistory(title: "Sunflower plant", duration: "1 week ago"),
+  ]
+  
     var body: some View {
       ZStack{
         Color(red: 0.1607843137254902, green: 0.16862745098039217, blue: 0.1411764705882353)
@@ -82,6 +89,11 @@ struct TemperatureView: View {
           // Vstack for options
           // hstack of teh component
 //          vstack instad
+          VStack {
+            ForEach(testHistoryData, id: \.title) { history in
+              TestHistoryCard(title: history.title, duration: history.duration)
+            }
+          }
         }
       }
     }
