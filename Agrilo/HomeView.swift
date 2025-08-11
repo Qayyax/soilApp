@@ -16,8 +16,8 @@ struct ImageIcon: View {
   
   var body: some View {
     Image(systemName: imageName)
-      .foregroundStyle(foregroundColor)
       .padding(padding ?? 16)
+      .foregroundStyle(foregroundColor)
       .background(in: Circle())
       .backgroundStyle(backgroundColor)
   }
@@ -164,6 +164,33 @@ struct OverViewContentViewTabs: View {
   }
 }
 
+struct SoilTestHighlight: View {
+  let title: String
+  let subtitle: String
+  let icon: String
+  
+  var body: some View {
+    VStack(alignment: .leading) {
+      // for the icon
+      HStack {
+        Spacer()
+        ImageIcon(imageName: icon, foregroundColor: Color.black, backgroundColor: Color.gray, padding: 20)
+      }
+      // for the text
+      VStack(alignment: .leading) {
+        Text(title)
+          .font(.title)
+        Text(subtitle)
+      }
+    }
+    .padding(4)
+    .padding(.leading, 15)
+    .padding(.bottom, 15)
+    .background(Color.white)
+    .cornerRadius(30)
+  }
+}
+
 struct HomeView: View {
     var body: some View {
       ZStack{
@@ -175,11 +202,9 @@ struct HomeView: View {
           OverViewContentViewTabs()
           
           // Soil test highlight
-          VStack {
-            // for the icon
-            HStack {
-              ImageIcon(imageName: "testtube.2", foregroundColor: Color.black, backgroundColor: Color.gray, padding: 20)
-            }
+          HStack {
+            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2")
+            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2")
           }
 
         }
