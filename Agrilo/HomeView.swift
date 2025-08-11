@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct ImageIcon: View {
+  let imageName: String
+  let foregroundColor: Color
+  let backgroundColor: Color
+  var padding: CGFloat?
+  
+  
+  var body: some View {
+    Image(systemName: imageName)
+      .foregroundStyle(foregroundColor)
+      .padding(padding ?? 16)
+      .background(in: Circle())
+      .backgroundStyle(backgroundColor)
+  }
+}
+
 struct Greeting: View {
   var body: some View {
     HStack{
@@ -19,11 +35,7 @@ struct Greeting: View {
           .fontWeight(.semibold)
       }
       Spacer()
-      Image(systemName: "bell.badge")
-        .padding()
-        .foregroundStyle(.yellow)
-        .background(in: Circle())
-        .backgroundStyle(.gray)
+      ImageIcon(imageName: "bell.badge", foregroundColor: Color.yellow, backgroundColor: Color.gray )
     }
     .padding()
   }
@@ -110,10 +122,7 @@ struct OverViewContentViewTabs: View {
           .font(.title)
           .fontWeight(.semibold)
         Spacer()
-        Image(systemName: "thermometer.sun")
-          .padding(20)
-          .foregroundStyle(.black)
-          .background(in: Circle())
+        ImageIcon(imageName: "thermometer.sun", foregroundColor: Color.black, backgroundColor: Color.white, padding: 20)
       }
       
       // tag cards
@@ -169,7 +178,7 @@ struct HomeView: View {
           VStack {
             // for the icon
             HStack {
-              Image(systemName: "")
+              ImageIcon(imageName: "testtube.2", foregroundColor: Color.black, backgroundColor: Color.gray, padding: 20)
             }
           }
 
