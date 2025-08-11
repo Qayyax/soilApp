@@ -32,18 +32,22 @@ struct Greeting: View {
 struct OverViewTabs: View {
   var body: some View {
     HStack{
-      Text("Soil Overview")
-        .padding(30)
-        .frame(maxWidth: .infinity)
-        .background(Color.white)
-        .cornerRadius(30)
-      Text("Scan Overview")
-        .padding(30)
-        .frame(maxWidth: .infinity)
-        .background(Color.gray)
-        .foregroundStyle(.white)
-        .cornerRadius(30)
+      OverViewTab(title: "Soil Overview", background: Color.white)
+      OverViewTab(title: "Scan Overview", background: Color.gray)
     }
+  }
+}
+
+struct OverViewTab: View {
+  let title: String
+  let background: Color
+  
+  var body: some View {
+    Text(title)
+      .padding(30)
+      .frame(maxWidth: .infinity)
+      .background(background)
+      .cornerRadius(30)
   }
 }
 
@@ -59,6 +63,21 @@ struct TagCards: View{
     .padding(10)
     .background()
     .cornerRadius(30)
+  }
+}
+
+struct SoilGraph: View {
+  let metric: String
+  let title: String
+  let height: CGFloat
+  
+  var body: some View {
+    VStack {
+      Text(metric)
+      Text(title)
+      Rectangle()
+        .frame(height: height )
+    }
   }
 }
 
@@ -93,34 +112,15 @@ struct HomeView: View {
               Spacer()
             }
             .padding(.horizontal, 5)
+            .padding(.bottom)
             
             // stack for bar graph
             // multiple vstack in an Hstack
             HStack (alignment: .bottom){
-              VStack {
-                Text("6.4")
-                Text("PH")
-                Rectangle()
-                  .frame(height: 30 )
-              }
-              VStack {
-                Text("40%")
-                Text("Moisture")
-                Rectangle()
-                  .frame(height: 60 )
-              }
-              VStack {
-                Text("")
-                Text("PH")
-                Rectangle()
-                  .frame(height: 100 )
-              }
-              VStack {
-                Text("6.4")
-                Text("PH")
-                Rectangle()
-                  .frame(height: 50 )
-              }
+              SoilGraph(metric: "6.4", title: "PH", height: 30)
+              SoilGraph(metric: "40%", title: "Moisture", height: 60)
+              SoilGraph(metric: "90%", title: "Fertility", height: 100)
+              SoilGraph(metric: "30%", title: "Nutrient", height: 50)
             }
           }
           .padding(5)
