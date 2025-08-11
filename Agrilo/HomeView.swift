@@ -150,16 +150,18 @@ struct OverViewContentViewTabs: View {
           .frame(width: 60, height: 15)
           .cornerRadius(30)
         Rectangle()
+          .fill(Color.gray)
           .frame(width: 30, height: 15)
           .cornerRadius(30)
         Rectangle()
+          .fill(Color.gray)
           .frame(width: 30, height: 15)
           .cornerRadius(30)
       }
       .padding(.bottom, 5)
     }
     .padding(5)
-    .background(Color.yellow)
+    .background(Color(red: 0.7804, green: 0.8196, blue: 0.3608))
     .cornerRadius(30)
   }
 }
@@ -168,13 +170,14 @@ struct SoilTestHighlight: View {
   let title: String
   let subtitle: String
   let icon: String
+  let iconColor: Color
   
   var body: some View {
     VStack(alignment: .leading) {
       // for the icon
       HStack {
         Spacer()
-        ImageIcon(imageName: icon, foregroundColor: Color.black, backgroundColor: Color.gray, padding: 20)
+        ImageIcon(imageName: icon, foregroundColor: iconColor, backgroundColor: Color.gray, padding: 20)
       }
       // for the text
       VStack(alignment: .leading) {
@@ -202,10 +205,11 @@ struct HomeView: View {
           OverViewContentViewTabs()
           
           // Soil test highlight
-          HStack {
-            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2")
-            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2")
+          HStack (alignment: .top){
+            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2", iconColor: .green)
+            SoilTestHighlight(title: "85%", subtitle: "Average satisfied result", icon: "face.smiling", iconColor: .orange)
           }
+          .padding(5)
 
         }
       }
