@@ -9,7 +9,34 @@ import SwiftUI
 
 struct TemperatureView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      ZStack{
+        Color(red: 0.1607843137254902, green: 0.16862745098039217, blue: 0.1411764705882353)
+          .ignoresSafeArea()
+        VStack{
+          // Greeting
+          HStack {
+            VStack (alignment: .leading){
+              Text("Soil Test")
+                .foregroundStyle(.white)
+                .font(.title)
+                .fontWeight(.semibold)
+              
+              Text("Test history and insights")
+                .foregroundStyle(.gray)
+            }
+            Spacer()
+          }
+          .padding(.leading, 20)
+          // Soil test highlight
+          HStack (alignment: .top){
+            SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2", iconColor: .green)
+            SoilTestHighlight(title: "85%", subtitle: "Average satisfied result", icon: "face.smiling", iconColor: .orange)
+          }
+          .padding(5)
+          
+          //
+        }
+      }
     }
 }
 
