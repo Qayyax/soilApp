@@ -67,6 +67,7 @@ struct TemperatureView: View {
             Spacer()
           }
           .padding(.leading, 20)
+          .padding(.bottom)
           // Soil test highlight
           HStack (alignment: .top){
             SoilTestHighlight(title: "100", subtitle: "Total test", icon: "testtube.2", iconColor: .green)
@@ -103,6 +104,7 @@ struct TemperatureView: View {
           .background(Color.yellow)
           .cornerRadius(20)
           .padding(.horizontal, 5)
+          
           
         }
       }
