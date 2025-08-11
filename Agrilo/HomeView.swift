@@ -35,13 +35,14 @@ struct OverViewTabs: View {
       Text("Soil Overview")
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(in: Capsule())
+        .background(Color.white)
+        .cornerRadius(30)
       Text("Scan Overview")
         .padding(30)
         .frame(maxWidth: .infinity)
-        .background(in: Capsule())
-        .backgroundStyle(.gray)
+        .background(Color.gray)
         .foregroundStyle(.white)
+        .cornerRadius(30)
     }
   }
 }
