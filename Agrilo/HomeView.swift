@@ -75,7 +75,12 @@ struct SoilGraph: View {
     VStack {
       Text(metric)
       Text(title)
-      Rectangle()
+      UnevenRoundedRectangle(
+        topLeadingRadius: 30,
+        bottomLeadingRadius: 6,
+        topTrailingRadius: 30,
+        
+      )
         .frame(height: height )
     }
   }
@@ -122,6 +127,7 @@ struct HomeView: View {
               SoilGraph(metric: "90%", title: "Fertility", height: 100)
               SoilGraph(metric: "30%", title: "Nutrient", height: 50)
             }
+            .padding(.horizontal, 10)
           }
           .padding(5)
           .background(Color.yellow)
