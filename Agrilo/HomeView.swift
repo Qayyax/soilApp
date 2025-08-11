@@ -57,7 +57,42 @@ struct HomeView: View {
           Greeting()
           // HStack
           OverViewTabs()
-          
+          // VStack
+          VStack {
+            HStack{
+              Text("Soil Overview")
+                .font(.title)
+                .fontWeight(.semibold)
+              Spacer()
+              Image(systemName: "thermometer.sun")
+                .padding(20)
+                .foregroundStyle(.black)
+                .background(in: Circle())
+            }
+            HStack{
+              // another hstack
+              HStack{
+                Image(systemName: "calendar")
+                Text("3 Days ago")
+              }
+              .padding(10)
+              .background()
+              .cornerRadius(30)
+              HStack{
+                Image(systemName: "camera.macro")
+                Text("Flower Plant")
+              }
+              .padding(10)
+              .background()
+              .cornerRadius(30)
+              Spacer()
+            }
+            .padding(.horizontal, 5)
+          }
+          .padding(5)
+          .background(Color.yellow)
+          .cornerRadius(30)
+
         }
       }
     }
