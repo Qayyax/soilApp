@@ -37,3 +37,41 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+enum TabbedItems: Int, CaseIterable{
+  case home = 0
+  case temperature
+  case scanner
+  case library
+  case settings
+    
+    var title: String{
+        switch self {
+        case .home:
+            return "Home"
+        case .temperature:
+            return "Temperature"
+        case .scanner:
+            return "Scanner"
+        case .library:
+            return "Library"
+        case .settings:
+          return "Settings"
+        }
+    }
+    
+    var iconName: String{
+        switch self {
+        case .home:
+            return "house"
+        case .temperature:
+            return "thermometer.sun"
+        case .scanner:
+            return "barcode.viewfinder"
+        case .library:
+            return "books.vertical"
+        case .settings:
+          return "gearshape"
+        }
+    }
+}
