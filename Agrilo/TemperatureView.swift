@@ -34,7 +34,17 @@ struct TemperatureView: View {
           }
           .padding(5)
           
-          //
+          //Hstack for test history
+          HStack{
+            Text("Test History")
+              .font(.title3.bold())
+            Spacer()
+            Button("See all") {
+              print("see all")
+            }
+          }
+          .foregroundStyle(.white)
+          .padding(.horizontal )
         }
       }
     }
