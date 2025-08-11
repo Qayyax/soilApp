@@ -88,52 +88,70 @@ struct SoilGraph: View {
   }
 }
 
+struct OverViewContentViewTabs: View {
+  var body: some View {
+    VStack {
+      HStack{
+        Text("Soil Overview")
+          .padding(.horizontal, 5)
+          .font(.title)
+          .fontWeight(.semibold)
+        Spacer()
+        Image(systemName: "thermometer.sun")
+          .padding(20)
+          .foregroundStyle(.black)
+          .background(in: Circle())
+      }
+      
+      // tag cards
+      HStack{
+        TagCards(text: "3 Days ago", image: "calendar")
+        TagCards(text: "Flower Plant", image: "camera.macro")
+        Spacer()
+      }
+      .padding(.horizontal, 5)
+      .padding(.bottom)
+      
+      // stack for bar graph
+      // multiple vstack in an Hstack
+      HStack (alignment: .bottom){
+        SoilGraph(metric: "6.4", title: "PH", height: 30)
+        SoilGraph(metric: "40%", title: "Moisture", height: 60)
+        SoilGraph(metric: "90%", title: "Fertility", height: 100)
+        SoilGraph(metric: "30%", title: "Nutrient", height: 50)
+      }
+      .padding(.horizontal, 10)
+      .padding(.bottom)
+      
+      // navigation icons
+      HStack {
+        Rectangle()
+          .frame(width: 60, height: 15)
+          .cornerRadius(30)
+        Rectangle()
+          .frame(width: 30, height: 15)
+          .cornerRadius(30)
+        Rectangle()
+          .frame(width: 30, height: 15)
+          .cornerRadius(30)
+      }
+      .padding(.bottom, 5)
+    }
+    .padding(5)
+    .background(Color.yellow)
+    .cornerRadius(30)
+  }
+}
+
 struct HomeView: View {
     var body: some View {
       ZStack{
         Color(red: 0.1607843137254902, green: 0.16862745098039217, blue: 0.1411764705882353)
           .ignoresSafeArea()
         VStack{
-          // Top page
           Greeting()
-          // HStack
           OverViewTabs()
-          // VStack
-          VStack {
-            HStack{
-              Text("Soil Overview")
-                .padding(.horizontal, 5)
-                .font(.title)
-                .fontWeight(.semibold)
-              Spacer()
-              Image(systemName: "thermometer.sun")
-                .padding(20)
-                .foregroundStyle(.black)
-                .background(in: Circle())
-            }
-            
-            // tag cards
-            HStack{
-              TagCards(text: "3 Days ago", image: "calendar")
-              TagCards(text: "Flower Plant", image: "camera.macro")
-              Spacer()
-            }
-            .padding(.horizontal, 5)
-            .padding(.bottom)
-            
-            // stack for bar graph
-            // multiple vstack in an Hstack
-            HStack (alignment: .bottom){
-              SoilGraph(metric: "6.4", title: "PH", height: 30)
-              SoilGraph(metric: "40%", title: "Moisture", height: 60)
-              SoilGraph(metric: "90%", title: "Fertility", height: 100)
-              SoilGraph(metric: "30%", title: "Nutrient", height: 50)
-            }
-            .padding(.horizontal, 10)
-          }
-          .padding(5)
-          .background(Color.yellow)
-          .cornerRadius(30)
+          OverViewContentViewTabs()
 
         }
       }
