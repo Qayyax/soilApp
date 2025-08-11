@@ -29,16 +29,33 @@ struct Greeting: View {
   }
 }
 
+struct OverViewTabs: View {
+  var body: some View {
+    HStack{
+      Text("Soil Overview")
+        .padding(30)
+        .frame(maxWidth: .infinity)
+        .background(in: Capsule())
+      Text("Scan Overview")
+        .padding(30)
+        .frame(maxWidth: .infinity)
+        .background(in: Capsule())
+        .backgroundStyle(.gray)
+        .foregroundStyle(.white)
+    }
+  }
+}
+
 struct HomeView: View {
     var body: some View {
       ZStack{
         Color(red: 0.1607843137254902, green: 0.16862745098039217, blue: 0.1411764705882353)
           .ignoresSafeArea()
         VStack{
-          // everything
-          // hstack here for goodmorening
           // Top page
           Greeting()
+          // HStack
+          OverViewTabs()
         }
       }
     }
