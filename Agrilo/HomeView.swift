@@ -61,6 +61,7 @@ struct HomeView: View {
           VStack {
             HStack{
               Text("Soil Overview")
+                .padding(.horizontal, 5)
                 .font(.title)
                 .fontWeight(.semibold)
               Spacer()
@@ -69,6 +70,7 @@ struct HomeView: View {
                 .foregroundStyle(.black)
                 .background(in: Circle())
             }
+            
             HStack{
               // another hstack
               HStack{
@@ -88,6 +90,36 @@ struct HomeView: View {
               Spacer()
             }
             .padding(.horizontal, 5)
+            
+            // stack for bar graph
+            // multiple vstack in an Hstack
+            HStack (alignment: .bottom){
+              VStack {
+                Text("6.4")
+                Text("PH")
+                Rectangle()
+                  .frame(height: 30 )
+              }
+              VStack {
+                Text("6.4")
+                Text("PH")
+                Rectangle()
+                  .frame(height: 60 )
+              }
+              VStack {
+                Text("6.4")
+                Text("PH")
+                Rectangle()
+                  .frame(height: 30 )
+              }
+              VStack {
+                Text("6.4")
+                Text("PH")
+                Rectangle()
+                  .frame(height: 30 )
+              }
+            }
+            .padding(.horizontal, 10)
           }
           .padding(5)
           .background(Color.yellow)
