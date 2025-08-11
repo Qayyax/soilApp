@@ -74,11 +74,13 @@ struct SoilGraph: View {
   var body: some View {
     VStack {
       Text(metric)
+        .font(.title2.bold())
       Text(title)
       UnevenRoundedRectangle(
         topLeadingRadius: 30,
         bottomLeadingRadius: 6,
         topTrailingRadius: 30,
+        style: .continuous
         
       )
         .frame(height: height )
