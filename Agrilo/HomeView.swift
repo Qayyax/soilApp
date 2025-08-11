@@ -88,7 +88,20 @@ struct SoilGraph: View {
   }
 }
 
+struct SoilGraphBar {
+  let metric: String
+  let title: String
+  let heigth: CGFloat
+}
+
 struct OverViewContentViewTabs: View {
+  let soilGraphs: [SoilGraphBar] = [
+    SoilGraphBar(metric: "6.4", title: "PH", heigth: 30),
+    SoilGraphBar(metric: "40%", title: "Moisture", heigth: 60),
+    SoilGraphBar(metric: "90%", title: "Fertility", heigth: 100),
+    SoilGraphBar(metric: "30%", title: "Nutrients", heigth: 50)
+  ]
+  
   var body: some View {
     VStack {
       HStack{
@@ -115,10 +128,9 @@ struct OverViewContentViewTabs: View {
       // stack for bar graph
       // multiple vstack in an Hstack
       HStack (alignment: .bottom){
-        SoilGraph(metric: "6.4", title: "PH", height: 30)
-        SoilGraph(metric: "40%", title: "Moisture", height: 60)
-        SoilGraph(metric: "90%", title: "Fertility", height: 100)
-        SoilGraph(metric: "30%", title: "Nutrient", height: 50)
+        ForEach(soilGraphs, id: \.self.title) { soilGraph in
+          SoilGraph(metric: soilGraph.metric, title: soilGraph.title, height: soilGraph.heigth)
+        }
       }
       .padding(.horizontal, 10)
       .padding(.bottom)
@@ -152,6 +164,14 @@ struct HomeView: View {
           Greeting()
           OverViewTabs()
           OverViewContentViewTabs()
+          
+          // Soil test highlight
+          VStack {
+            // for the icon
+            HStack {
+              Image(systemName: "")
+            }
+          }
 
         }
       }
