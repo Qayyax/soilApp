@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
   var body: some View {
     MainTabView()
+      .padding(.bottom, 10)
+      .ignoresSafeArea()
   }
 }
   
