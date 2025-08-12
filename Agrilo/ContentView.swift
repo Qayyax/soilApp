@@ -57,9 +57,8 @@ struct MainTabView: View {
         SettingsView()
           .tag(4)
       }
-      .ignoresSafeArea()
       
-      VStack{
+      ZStack{
         HStack{
           ForEach((TabbedItems.allCases), id: \.self){ item in
             Button{
@@ -71,9 +70,8 @@ struct MainTabView: View {
         }
         .padding(5)
       }
-      .frame(height: 60)
       .background(.gray)
-      .cornerRadius(30)
+      .cornerRadius(25)
       .padding(.horizontal, 20)
     }
   }
@@ -88,8 +86,8 @@ extension MainTabView {
         .foregroundColor(isActive ? .yellow : .white)
         .frame(width: 20, height: 20)
     }
-    .frame(width: 60, height: 60)
+    .frame(width: 60, height: 50)
     .background(.black)
-    .cornerRadius(30)
+    .cornerRadius(25)
   }
 }
