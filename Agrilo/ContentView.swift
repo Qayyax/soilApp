@@ -74,7 +74,6 @@ struct MainTabView: View {
       }
       .background(.gray)
       .cornerRadius(25)
-      .padding(.horizontal, 20)
     }
   }
 }
